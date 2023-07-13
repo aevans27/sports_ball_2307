@@ -45,12 +45,12 @@ class Team
 
   def average_cost_of_player
     average_cost = total_value / player_count
-    dollor_amount = "$#{average_cost.to_s}"
-    #Yes its only for this situation,
-    #I couldn't think of the right method for this
-    if dollor_amount.length == 9
-      dollor_amount.insert(6, ",").insert(3, ",")
+    dollor_amount = average_cost.to_s
+    
+    if dollor_amount.length <= 9 && dollor_amount.length > 6
+      dollor_amount.insert((dollor_amount.length - 6), ",").insert((dollor_amount.length - 3), ",")
     end
+    dollor_amount = "$#{dollor_amount}"
   end
 
   def players_by_last_name
